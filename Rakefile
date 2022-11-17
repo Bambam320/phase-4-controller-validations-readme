@@ -3,4 +3,10 @@
 
 require_relative "config/application"
 
+desc "Start the console"
+task :console do
+  ActiveRecord::Base.logger = Logger.new(STDOUT)
+  Pry.start
+end
+
 Rails.application.load_tasks
